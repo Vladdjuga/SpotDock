@@ -8,8 +8,8 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 // Add DI
-builder.Services.AddAuctionsModule(app.Configuration);
-builder.Services.AddComputeModule(app.Configuration);
+builder.Services.AddAuctionsModule(builder.Configuration);
+builder.Services.AddComputeModule(builder.Configuration);
 // builder.Services.AddKernelModule(app.Configuration);
 // builder.Services.AddBillingModule(app.Configuration);
 
