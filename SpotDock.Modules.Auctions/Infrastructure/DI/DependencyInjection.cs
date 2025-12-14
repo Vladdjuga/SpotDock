@@ -15,8 +15,8 @@ public static class DependencyInjection
             options.UseNpgsql(configuration.GetConnectionString("auctionsDb"))
         );
 
-        services.AddScoped<IBidRepository>(); // TODO : Add implementation
-        services.AddScoped<ISpotInstanceRepository>(); // TODO : Add implementation
+        services.AddScoped<IBidRepository, BidRepository>();
+        services.AddScoped<ISpotInstanceRepository, SpotInstanceRepository>();
 
         services.AddMediatR(cfg=>cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
     }
