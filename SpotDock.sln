@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotDock.Modules.Billing", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotDock.Shared.Kernel", "SpotDock.Shared.Kernel\SpotDock.Shared.Kernel.csproj", "{D44EB0B2-DEF8-4D18-B734-0ECBAA4EF433}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotDock.Tests", "SpotDock.Tests\SpotDock.Tests.csproj", "{4F8A05DC-D495-48B6-B174-F7610B8383AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,7 @@ Global
 		{62CCE4A4-E61F-43DD-936C-6209F289CCCE} = {E15B6570-1887-4033-BDFB-656CDD11F72F}
 		{6296312F-04E0-4C29-ACFB-C7E754F8219C} = {E15B6570-1887-4033-BDFB-656CDD11F72F}
 		{D44EB0B2-DEF8-4D18-B734-0ECBAA4EF433} = {E15B6570-1887-4033-BDFB-656CDD11F72F}
+		{4F8A05DC-D495-48B6-B174-F7610B8383AF} = {E15B6570-1887-4033-BDFB-656CDD11F72F}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{66CF9B81-DDD4-46F1-9E58-FA8B631F2332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -45,5 +48,9 @@ Global
 		{D44EB0B2-DEF8-4D18-B734-0ECBAA4EF433}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D44EB0B2-DEF8-4D18-B734-0ECBAA4EF433}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D44EB0B2-DEF8-4D18-B734-0ECBAA4EF433}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F8A05DC-D495-48B6-B174-F7610B8383AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F8A05DC-D495-48B6-B174-F7610B8383AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F8A05DC-D495-48B6-B174-F7610B8383AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F8A05DC-D495-48B6-B174-F7610B8383AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
