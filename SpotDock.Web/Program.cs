@@ -1,3 +1,4 @@
+using SpotDock.Modules.Billing.Infrastructure.DI;
 using SpotDock.Modules.Market.Infrastructure.DI;
 using SpotDock.Modules.Compute.Infrastructure.DI;
 
@@ -11,7 +12,7 @@ var app = builder.Build();
 builder.Services.AddMarketModule(builder.Configuration);
 builder.Services.AddComputeModule(builder.Configuration);
 // builder.Services.AddKernelModule(app.Configuration);
-// builder.Services.AddBillingModule(app.Configuration);
+builder.Services.AddBillingModule(app.Configuration);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

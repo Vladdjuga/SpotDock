@@ -5,15 +5,10 @@ using SpotDock.Modules.Auth.Application.Interfaces;
 
 namespace SpotDock.Modules.Auth.Infrastructure.Security;
 
-public sealed class PasswordHasher : IPasswordHasher
+public sealed class PasswordHasher(IOptions<PasswordHasherOptions> options) : IPasswordHasher
 {
-    private readonly PasswordHasherOptions _options;
+    private readonly PasswordHasherOptions _options = options.Value;
     private const char Delimiter = ':';
-
-    public PasswordHasher(IOptions<PasswordHasherOptions> options)
-    {
-        _options = options.Value;
-    }
 
     public string Hash(string password)
     {
