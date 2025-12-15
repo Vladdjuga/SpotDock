@@ -15,7 +15,10 @@ builder.Services.AddBillingModule(builder.Configuration);
 // MassTransit + RabbitMQ
 builder.Services.AddMassTransit(cfg =>
 {
-    // TODO: register consumers/sagas from modules when they appear
+    // Saga orchestrating resource provisioning (funds -> capacity -> job)
+    cfg.AddSagaStateMachine<SpotDock.Modules.Market.Application.Sagas.ProvisionComputeStateMachine,
+        SpotDock.Modules.Market.Application.Sagas.ProvisionComputeSagaState>()
+        .InMemoryRepository();
 
     cfg.UsingRabbitMq((context, busCfg) =>
     {
