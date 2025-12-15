@@ -1,4 +1,4 @@
-using SpotDock.Modules.Auctions.Infrastructure.DI;
+using SpotDock.Modules.Market.Infrastructure.DI;
 using SpotDock.Modules.Compute.Infrastructure.DI;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +8,7 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 // Add DI
-builder.Services.AddAuctionsModule(builder.Configuration);
+builder.Services.AddMarketModule(builder.Configuration);
 builder.Services.AddComputeModule(builder.Configuration);
 // builder.Services.AddKernelModule(app.Configuration);
 // builder.Services.AddBillingModule(app.Configuration);

@@ -11,9 +11,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SpotDock.Modules.Auctions\SpotDock.Modules.Auctions.csproj" />
       <ProjectReference Include="..\SpotDock.Modules.Billing\SpotDock.Modules.Billing.csproj" />
       <ProjectReference Include="..\SpotDock.Modules.Compute\SpotDock.Modules.Compute.csproj" />
+      <ProjectReference Include="..\SpotDock.Modules.Market\SpotDock.Modules.Market.csproj" />
       <ProjectReference Include="..\SpotDock.Shared.Kernel\SpotDock.Shared.Kernel.csproj" />
     </ItemGroup>
 
