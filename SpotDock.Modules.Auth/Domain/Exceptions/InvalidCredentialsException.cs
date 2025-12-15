@@ -1,9 +1,3 @@
 namespace SpotDock.Modules.Auth.Domain.Exceptions;
 
-public sealed class InvalidCredentialsException : Exception
-{
-    public InvalidCredentialsException()
-        : base("Invalid email or password.")
-    {
-    }
-}
+public sealed class InvalidCredentialsException() : Exception("Invalid email or password.");

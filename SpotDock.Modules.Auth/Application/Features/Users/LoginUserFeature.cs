@@ -5,7 +5,7 @@ using SpotDock.Modules.Auth.Domain.Repositories;
 
 namespace SpotDock.Modules.Auth.Application.Features.Users;
 
-public static class LoginUserUseCase
+public static class LoginUserFeature
 {
     public sealed record Request(
         string Email,
