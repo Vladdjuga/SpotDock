@@ -1,5 +1,9 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using MassTransit;
 using SpotDock.Modules.Auth.Infrastructure.DI;
+using SpotDock.Modules.Auth.Infrastructure.Security;
 using SpotDock.Modules.Billing.Infrastructure.DI;
 using SpotDock.Modules.Market.Infrastructure.DI;
 using SpotDock.Modules.Compute.Infrastructure.DI;
@@ -7,6 +11,28 @@ using SpotDock.Modules.Compute.Infrastructure.DI;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
+builder.Services.AddControllers();
+
+// JWT Authentication
+var jwtOptions = builder.Configuration.GetSection(JwtOptions.SectionName).Get<JwtOptions>()
+    ?? throw new InvalidOperationException("JWT configuration is missing");
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtOptions.Issuer,
+            ValidAudience = jwtOptions.Audience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecretKey))
+        };
+    });
+
+builder.Services.AddAuthorization();
 
 // Add DI for modules
 builder.Services.AddAuthModule(builder.Configuration);
@@ -47,6 +73,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapGet("/health", () => Results.Ok("OK"))
     .WithName("HealthCheck")
