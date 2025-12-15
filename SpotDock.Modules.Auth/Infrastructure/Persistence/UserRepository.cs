@@ -39,4 +39,17 @@ public sealed class UserRepository(AuthDbContext context) : IUserRepository
             .AsNoTracking()
             .FirstAsync(u => u.Id == userId);
     }
+
+    public async Task<User?> GetByEmailAsync(string email)
+    {
+        return await context.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Email == email);
+    }
+
+    public async Task UpdateAsync(User user)
+    {
+        context.Users.Update(user);
+        await context.SaveChangesAsync();
+    }
 }

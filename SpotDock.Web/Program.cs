@@ -1,4 +1,5 @@
 using MassTransit;
+using SpotDock.Modules.Auth.Infrastructure.DI;
 using SpotDock.Modules.Billing.Infrastructure.DI;
 using SpotDock.Modules.Market.Infrastructure.DI;
 using SpotDock.Modules.Compute.Infrastructure.DI;
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 // Add DI for modules
+builder.Services.AddAuthModule(builder.Configuration);
 builder.Services.AddMarketModule(builder.Configuration);
 builder.Services.AddComputeModule(builder.Configuration);
 builder.Services.AddBillingModule(builder.Configuration);
